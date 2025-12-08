@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reasons I Love You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5rem;
+      color: #ff4d6d;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .reason {
+      background: #ffe6ec;
+      margin: 20px auto;
+      padding: 20px 25px;
+      border-radius: 20px;
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: #d6336c;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+      transition: transform 0.2s;
+      position: relative;
+    }
+
+    .reason:hover {
+      transform: scale(1.05);
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    #nextBtn {
+      display: block;
+      margin: 40px auto 60px auto;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>10 Reasons I Love You ❤️</h1>
+
+  <div class="reason">You calm my entire brain just by existing. <span class="emoji">💗</span></div>
+  <div class="reason">You match my chaos and still make me feel safe. <span class="emoji">✨</span></div>
+  <div class="reason">You’re cute even when you act serious. <span class="emoji">🥺</span></div>
+  <div class="reason">Your maturity + softness is unreal. <span class="emoji">💖</span></div>
+  <div class="reason">Talking to you feels like breathing again. <span class="emoji">😌</span></div>
+  <div class="reason">You make everything lighter. <span class="emoji">💞</span></div>
+  <div class="reason">Your smile hits like a cheat code. <span class="emoji">😻</span></div>
+  <div class="reason">You make me want to be better without forcing it. <span class="emoji">🌸</span></div>
+  <div class="reason">We just… fit. <span class="emoji">💕</span></div>
+  <div class="reason">You feel like home *and* adventure at the same time. <span class="emoji">💓</span></div>
+
+  <button id="nextBtn">Next 💞</button>
+
+  <script>
+    // Randomly float emojis around each reason
+    document.querySelectorAll('.emoji').forEach((em) => {
+      em.style.left = Math.random() * 80 + '%';
+      em.style.top = Math.random() * 20 + 'px';
+    });
+
+    document.getElementById('nextBtn').onclick = () => {
+      window.location.href = 'page5.html';
+    };
+  </script>
+
+</body>
+</html>

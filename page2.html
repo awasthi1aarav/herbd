@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message for Avantika ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 120px auto;
+      text-align: center;
+      padding: 0 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #nextBtn {
+      margin-top: 40px;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+      animation: fadeIn 2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Avantika…</h1>
+    <p>You steady me in ways no one else ever has.<br>
+    And I miss you in ways that feel too big for words.<br>
+    Being with you makes everything quieter… softer… easier.</p>
+
+    <button id="nextBtn">Next 💗</button>
+  </div>
+
+  <script>
+    document.getElementById('nextBtn').onclick = () => {
+      window.location.href = "page3.html";
+    }
+  </script>
+
+</body>
+</html>

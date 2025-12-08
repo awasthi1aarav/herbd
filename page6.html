@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Surprise for Avantika ✨</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0b0c2a;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      user-select: none;
+      color: white;
+      text-align: center;
+    }
+
+    #container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 700px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4d6d;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      line-height: 1.8;
+    }
+
+    .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 0.9rem;
+    }
+
+    #heart {
+      font-size: 4rem;
+      color: #ff4d6d;
+      margin-top: 30px;
+      opacity: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <h1>Avantika…</h1>
+    <p id="line1">Thank you for being my calm,</p>
+    <p id="line2">my warmth,</p>
+    <p id="line3">and my person.</p>
+    <div id="heart">❤️</div>
+  </div>
+
+  <button id="musicBtn">Play Music 🎵</button>
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7e1cbb7ba1.mp3?filename=romantic-piano-ambient-100571.mp3" loop></audio>
+
+  <script>
+    // Fade in lines
+    const lines = [document.getElementById('line1'), document.getElementById('line2'), document.getElementById('line3'), document.getElementById('heart')];
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        line.style.opacity = 1;
+        line.style.transform = 'translateY(0)';
+        line.style.transition = 'opacity 1s ease, transform 1s ease';
+      }, index * 1500);
+    });
+
+    // Stars
+    for(let i=0;i<150;i++){
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random()*100 + 'vw';
+      star.style.top = Math.random()*100 + 'vh';
+      star.style.width = star.style.height = Math.random()*2 + 1 + 'px';
+      document.body.appendChild(star);
+    }
+
+    // Music button
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    let playing = false;
+    musicBtn.onclick = () => {
+      if(!playing){
+        bgMusic.play();
+        musicBtn.innerText = 'Pause Music ⏸️';
+        playing = true;
+      } else {
+        bgMusic.pause();
+        musicBtn.innerText = 'Play Music 🎵';
+        playing = false;
+      }
+    };
+  </script>
+
+</body>
+</html>

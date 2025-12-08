@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Wish for Avantika ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 120px auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ff4d6d;
+      animation: fadeIn 1.5s ease;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      color: #444;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .heart {
+      position: fixed;
+      color: #ff4d6d;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #nextBtn {
+      margin-top: 40px;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Birthday Avantika ❤️</h1>
+    <p id="line1">You are the calm in my chaos,</p>
+    <p id="line2">the warmth I never knew I needed,</p>
+    <p id="line3">and the home I carry in my heart.</p>
+    <p id="line4">Every moment with you feels timeless,</p>
+    <p id="line5">every smile a universe of its own.</p>
+    <p id="line6">Today, I celebrate you —</p>
+    <p id="line7">your laughter, your love, your soul.</p>
+    <p id="line8">I love you more than words can hold,</p>
+    <p id="line9">more than the stars scattered across the sky.</p>
+
+    <button id="nextBtn">Next 💌</button>
+  </div>
+
+  <script>
+    // Fade in lines one by one
+    const lines = document.querySelectorAll('p');
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        line.style.opacity = 1;
+        line.style.transform = 'translateY(0)';
+        line.style.transition = 'opacity 1s ease, transform 1s ease';
+      }, index * 1000);
+    });
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = ['❤️','💕','💗','💞','💘'][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.bottom = '0px';
+      heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+
+    document.getElementById('nextBtn').onclick = () => {
+      window.location.href = 'page6.html';
+    };
+  </script>
+
+</body>
+</html>
