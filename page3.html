@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Memories ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favourites ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -19,7 +24,7 @@
       font-size: 2.5rem;
       margin-top: 40px;
       color: #ff4d6d;
-      animation: fadeIn 1.5s ease;
+      animation: fadeIn 1.2s ease;
     }
 
     .gallery {
@@ -32,12 +37,11 @@
     }
 
     .photo {
-      position: relative;
       background: white;
       padding: 12px;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      animation: fadeIn 1.2s ease;
+      animation: fadeIn 1s ease;
     }
 
     .photo img {
@@ -45,23 +49,19 @@
       border-radius: 15px;
     }
 
-    /* Cute chaos doodles */
-    .doodle {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 3s ease-in-out infinite;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #ff4d6d;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 0.9rem;
+      border: none;
+      z-index: 10;
     }
 
     #nextBtn {
@@ -74,32 +74,60 @@
       cursor: pointer;
       font-size: 1rem;
       border: none;
-      animation: fadeIn 2s ease;
+      animation: fadeIn 1.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>My favourites ❤️</h1>
+  <h1>My Favourites ❤️</h1>
 
-  <div class="gallery" id="gallery">
-    <div class="photo"><img src="p1.jpg" alt="Memory 1"></div>
-    <div class="photo"><img src="p2.jpg" alt="Memory 2"></div>
-    <div class="photo"><img src="p3.jpg" alt="Memory 3"></div>
-    <div class="photo"><img src="p4.jpg" alt="Memory 4"></div>
-    <div class="photo"><img src="p5.jpg" alt="Memory 5"></div>
-    <div class="photo"><img src="p6.jpg" alt="Memory 6"></div>
-    <div class="photo"><img src="p7.jpg" alt="Memory 7"></div>
+  <div class="gallery">
+    <div class="photo"><img src="p1.jpg"></div>
+    <div class="photo"><img src="p2.jpg"></div>
+    <div class="photo"><img src="p3.jpg"></div>
+    <div class="photo"><img src="p4.jpg"></div>
+    <div class="photo"><img src="p5.jpg"></div>
+    <div class="photo"><img src="p6.jpg"></div>
+    <div class="photo"><img src="p7.jpg"></div>
   </div>
 
   <button id="nextBtn">Next 💞</button>
+  <button id="musicBtn">Play The Song 🎵</button>
+
+  <audio id="bgMusic" src="song.mp3" preload="auto" playsinline loop></audio>
 
   <script>
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    musicBtn.onclick = () => {
+      if (!isPlaying) {
+        bgMusic.play().then(() => {
+          musicBtn.textContent = 'Pause Song ⏸️';
+          isPlaying = true;
+        }).catch(() => {
+          alert("Turn off silent mode or tap again.");
+        });
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = 'Play The Song 🎵';
+        isPlaying = false;
+      }
+    };
+
     document.getElementById('nextBtn').onclick = () => {
-      window.location.href = "page4.html";
-    }
+      bgMusic.pause();
+      window.location.href = 'page4.html';
+    };
   </script>
 
 </body>
-
 </html>
