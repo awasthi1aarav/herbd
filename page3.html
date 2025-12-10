@@ -1,109 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Memories ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: white;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      user-select: none;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Memories ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      user-select: none;
+    }
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 40px;
-      color: #ff4d6d;
-      animation: fadeIn 1.5s ease;
-    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 40px;
+      color: #ff4d6d;
+      animation: fadeIn 1.5s ease;
+    }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      padding: 40px;
-      max-width: 1100px;
-      margin: auto;
-    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-    .photo {
-      position: relative;
-      background: white;
-      padding: 12px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      animation: fadeIn 1.2s ease;
-    }
+    .photo {
+      position: relative;
+      background: white;
+      padding: 12px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 1.2s ease;
+    }
 
-    .photo img {
-      width: 100%;
-      border-radius: 15px;
-    }
+    .photo img {
+      width: 100%;
+      border-radius: 15px;
+    }
 
-    /* Cute chaos doodles */
-    .doodle {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 3s ease-in-out infinite;
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    #nextBtn {
-      display: block;
-      margin: 40px auto 60px auto;
-      background: #ff4d6d;
-      color: white;
-      padding: 12px 26px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
+    /* --- MUSIC BUTTON STYLES --- */
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px; /* Positioned on the left side */
+      background: #ff4d6d;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 0.9rem;
       border: none;
-      animation: fadeIn 2s ease;
-    }
-  </style>
+      z-index: 10; /* Ensures it stays on top of other content */
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Other CSS Keyframes */
+
+    #nextBtn {
+      display: block;
+      margin: 40px auto 60px auto;
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+      animation: fadeIn 2s ease;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>My favourites ❤️</h1>
+  <h1>My favourites ❤️</h1>
 
-  <div class="gallery" id="gallery">
-    <div class="photo"><img src="p1.jpg" alt="Memory 1"></div>
-    <div class="photo"><img src="p2.jpg" alt="Memory 2"></div>
-    <div class="photo"><img src="p3.jpg" alt="Memory 3"></div>
-    <div class="photo"><img src="p4.jpg" alt="Memory 4"></div>
-    <div class="photo"><img src="p5.jpg" alt="Memory 5"></div>
-    <div class="photo"><img src="p6.jpg" alt="Memory 6"></div>
-    <div class="photo"><img src="p7.jpg" alt="Memory 7"></div>
-  </div>
+  <div class="gallery" id="gallery">
+    <div class="photo"><img src="p1.jpg" alt="Memory 1"></div>
+    <div class="photo"><img src="p2.jpg" alt="Memory 2"></div>
+    <div class="photo"><img src="p3.jpg" alt="Memory 3"></div>
+    <div class="photo"><img src="p4.jpg" alt="Memory 4"></div>
+    <div class="photo"><img src="p5.jpg" alt="Memory 5"></div>
+    <div class="photo"><img src="p6.jpg" alt="Memory 6"></div>
+    <div class="photo"><img src="p7.jpg" alt="Memory 7"></div>
+  </div>
 
-  <button id="nextBtn">Next 💞</button>
+  <button id="nextBtn">Next 💞</button>
 
-  <script>
-    document.getElementById('nextBtn').onclick = () => {
-      window.location.href = "page4.html";
-    }
-  </script>
+  <button id="musicBtn">Play The Song 🎵</button>
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/04/18/audio_67a211e40a.mp3?filename=shes-so-perfect-143715.mp3" loop></audio>
+
+  <script>
+    // Music Player Logic
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    let playing = false;
+
+    musicBtn.onclick = () => {
+      if(!playing){
+        // Start playing the music
+        bgMusic.play();
+        musicBtn.innerText = 'Pause Song ⏸️';
+        playing = true;
+      } else {
+        // Pause the music
+        bgMusic.pause();
+        musicBtn.innerText = 'Play The Song 🎵';
+        playing = false;
+      }
+    };
+    
+    // Navigation Logic
+    document.getElementById('nextBtn').onclick = () => {
+      // Pause the music before navigating
+      bgMusic.pause();
+      window.location.href = "page4.html";
+    }
+  </script>
 
 </body>
-
 </html>
-
-
-
-
