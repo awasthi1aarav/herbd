@@ -49,21 +49,6 @@
       border-radius: 15px;
     }
 
-    #musicBtn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #ff4d6d;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-size: 0.9rem;
-      border: none;
-      z-index: 10;
-    }
-
     #nextBtn {
       display: block;
       margin: 40px auto 60px auto;
@@ -99,33 +84,10 @@
   </div>
 
   <button id="nextBtn">Next 💞</button>
-  <button id="musicBtn">Play The Song 🎵</button>
-
-  <audio id="bgMusic" src="song.mp3" preload="auto" playsinline loop></audio>
 
   <script>
-    const musicBtn = document.getElementById('musicBtn');
-    const bgMusic = document.getElementById('bgMusic');
-    let isPlaying = false;
-
-    musicBtn.onclick = () => {
-      if (!isPlaying) {
-        bgMusic.play().then(() => {
-          musicBtn.textContent = 'Pause Song ⏸️';
-          isPlaying = true;
-        }).catch(() => {
-          alert("Turn off silent mode or tap again.");
-        });
-      } else {
-        bgMusic.pause();
-        musicBtn.textContent = 'Play The Song 🎵';
-        isPlaying = false;
-      }
-    };
-
-    document.getElementById('nextBtn').onclick = () => {
-      bgMusic.pause();
-      window.location.href = 'page4.html';
+    document.getElementById("nextBtn").onclick = () => {
+      window.location.href = "page4.html";
     };
   </script>
 
